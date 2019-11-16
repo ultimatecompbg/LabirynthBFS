@@ -1,18 +1,17 @@
 
 bfs = function () {
-    var maze = 
+	var maze = 
     [
-		['*', '*', '*', ' ', '*', '*', '*'],
-		['*', 's', ' ', ' ', ' ', '*', '*'],
-		['*', ' ', '*', '*', ' ', ' ', ' '],
-		['*', ' ', ' ', '*', ' ', '*', '*'],
-		['*', ' ', ' ', ' ', ' ', '*', '*'],
-		['*', '*', '*', ' ', '*', '*', '*'],
-		['*', ' ', ' ', ' ', '*', '*', '*'],
-		['*', ' ', '*', '*', '*', '*', '*'],
-		['*', ' ', '*', '*', '*', '*', '*'],
+		[1, 1, 1, 0, 1, 1, 1],
+		[1, 1, 1, 0, 0, 1, 1],
+		[1, 0, 1, 1, 0, 0, 0],
+		[1, 0, 0, 1, 0, 1, 1],
+		[1, 0, 0, 0, 0, 1, 1],
+		[1, 1, 1, 0, 1, 1, 1],
+		[1, 0, 0, 0, 1, 1, 1],
+		[1, 0, 1, 1, 1, 1, 1],
+		[1, 0, 1, 1, 1, 1, 1],
     ];
-
     let isValid = function (x, y) {
         if (x < 0 || y < 0 || x >= bfs.S || y >= bfs.S){
 		return false; }
@@ -21,17 +20,17 @@ bfs = function () {
 		 }
     };
     countPaths = function (maze, x, y, visited, count) {
-        if (x === bfs.S[0] - 1 && y === bfs.S[1] - 1) {
+        if (x === bfs.S - 1 && y === bfs.S - 1) {
             count++;
             return count;
         }
         visited[x][y] = true;
-        if (isValid(x, y) && maze[x][y] === ' ') {
-            if (x + 1 < bfs.S[0] && !visited[x + 1][y])
+        if (isValid(x, y) && maze[x][y] === 1) {
+            if (x + 1 < bfs.S && !visited[x + 1][y])
                 count = countPaths(maze, x + 1, y, visited, count);
             if (x - 1 >= 0 && !visited[x - 1][y])
                 count = countPaths(maze, x - 1, y, visited, count);
-            if (y + 1 < bfs.S[1] && !visited[x][y + 1])
+            if (y + 1 < bfs.S && !visited[x][y + 1])
                 count = countPaths(maze, x, y + 1, visited, count);
             if (y - 1 >= 0 && !visited[x][y - 1])
                 count = countPaths(maze, x, y - 1, visited, count);
@@ -59,6 +58,6 @@ bfs = function () {
 	
     return countPaths;
 }();
-bfs.S = [1, 1];
+bfs.S = 2;
 
 checkPaths();
