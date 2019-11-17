@@ -1,17 +1,12 @@
 
 bfs = function () {
-	var maze = 
-    [
-		[1, 1, 1, 0, 1, 1, 1],
-		[1, 1, 1, 0, 0, 1, 1],
-		[1, 0, 1, 1, 0, 0, 0],
-		[1, 0, 0, 1, 0, 1, 1],
-		[1, 0, 0, 0, 0, 1, 1],
-		[1, 1, 1, 0, 1, 1, 1],
-		[1, 0, 0, 0, 1, 1, 1],
-		[1, 0, 1, 1, 1, 1, 1],
-		[1, 0, 1, 1, 1, 1, 1],
-    ];
+	var maze = [
+		[' ', ' ', ' ', ' '], 
+        [' ', ' ', '*', ' '],
+        ['*', ' ', '*', ' '],
+        [' ', ' ', ' ', ' ']
+		];
+
     let isValid = function (x, y) {
         if (x < 0 || y < 0 || x >= bfs.S || y >= bfs.S){
 		return false; }
@@ -25,7 +20,7 @@ bfs = function () {
             return count;
         }
         visited[x][y] = true;
-        if (isValid(x, y) && maze[x][y] === 1) {
+        if (isValid(x, y) && maze[x][y] === ' ') {
             if (x + 1 < bfs.S && !visited[x + 1][y])
                 count = countPaths(maze, x + 1, y, visited, count);
             if (x - 1 >= 0 && !visited[x - 1][y])
@@ -58,6 +53,6 @@ bfs = function () {
 	
     return countPaths;
 }();
-bfs.S = 2;
+bfs.S = 4;
 
 checkPaths();
