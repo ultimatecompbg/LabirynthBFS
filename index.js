@@ -27,6 +27,7 @@ let appendElement = (canvas, node, maze) => {
     " ": "gray",
     s: "lime"
   };
+
   let blockRef = document.createElementNS("http://www.w3.org/2000/svg", "rect");
   blockRef.setAttribute("height", size);
   blockRef.setAttribute("x", node.x * size);
@@ -34,6 +35,15 @@ let appendElement = (canvas, node, maze) => {
   blockRef.setAttribute("width", size);
   blockRef.setAttribute("fill", colors[maze[node.y][node.x]]);
   blockRef.setAttribute("stroke", "white");
+  var svgElem = document.createElementNS("http://www.w3.org/2000/svg", "svg"),
+    useElem = document.createElementNS("http://www.w3.org/2000/svg", "use");
+  useElem.setAttributeNS(
+    "http://www.w3.org/1999/xlink",
+    "xlink:href",
+    "#circle"
+  );
+  svgElem.appendChild(useElem);
+  canvas.appendChild(useElem);
   canvas.appendChild(blockRef);
 };
 
