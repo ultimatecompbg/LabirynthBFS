@@ -12,14 +12,13 @@ var maze = [
   ["*", " ", "*", "*", "*", "*", "*"]
 ];
 
-var start = { row: 1, column: 1, path: [] };
-var queue = [];
+var queue;
 var exitfound = false;
 
 bfs(maze);
 
 function bfs(maze) {
-  queue.push(start);
+  queue = find_start(maze);
   while (queue.length != 0) {
     let position = queue.shift();
 
@@ -80,4 +79,16 @@ function print_path(position) {
     console.log(step);
   });
   console.log("Exit found!");
+}
+function find_start(maze) {
+  let start = { row: 0, column: 0, path: [] };
+  for (let row = 0; row < maze.length; row++) {
+    for (let column = 0; column < maze[0].length; column++) {
+      if (maze[row][column] === "s") {
+        start.row = row;
+        start.column = column;
+      }
+    }
+  }
+  return [start];
 }

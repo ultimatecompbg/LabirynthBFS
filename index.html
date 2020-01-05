@@ -1,28 +1,51 @@
+
+</html>
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" />
-    <title>Document</title>
+    <script src="kinvey-example.js"></script>
+    
+    
+   
   </head>
+
   <body>
-    <div id="app"></div>
+      
+      
 
-<input type="range" min='0' max="100"></input>
-<script src="index.js"></script>
-  <defs>
-    <g id="circle">
-        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
-    </g>
-  </defs>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/7.5.0/firebase-app.js"></script>
+    <a id="buttonLoad" href="#">[Load]</a>
+    <br />
+    <br />
+    <div>
+      <select id="listBoxMazes" size="5">
+        <option>Maze 1</option>
+        <option>Maze 2</option>
+        <option>Maze 3</option>
+      </select>
+    </div>
+    
+    <a id="buttonSelect" href="#"></a>
+    <br/>
+    <br/>
+    <div>
+      <div>Name: <input type="text" id="textBoxMazeName" /></div>
+      <div>Data: <input type="text" id="textBoxMazeData" /></div>
+      <a id="buttonAdd" href="#">[Add]</a>
+    </div>
+    <br/>
+    <br/>
+    <div id="maze">      
+    <div id="app"></div>   
+    <script src="index.js"></script>
+      <defs>
+        <g id="circle">
+            <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+        </g>
+      </defs>
+    </div>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/7.5.0/firebase-analytics.js"></script>
-
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
+    
   </body>
 </html>
